@@ -1,0 +1,23 @@
+[
+  {
+    "id": "V-01",
+    "name": "Van 01",
+    "capacity": 8,
+    "available": true,
+    "driver": "Ana"
+  },
+  {
+    "id": "V-02",
+    "name": "Camión 02",
+    "capacity": 20,
+    "available": true,
+    "driver": "Carlos"
+  },
+  {
+    "id": "V-03",
+    "name": "Van 03",
+    "capacity": 8,
+    "available": false,
+    "driver": "María"
+  }
+]

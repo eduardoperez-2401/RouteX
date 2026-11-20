@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RouteX - Red de transporte</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f3f5f8;color:#182230}header{background:#172554;color:white;padding:24px}main{max-width:1000px;margin:24px auto;padding:0 16px}.card{background:white;border-radius:12px;padding:18px;margin:14px 0;box-shadow:0 2px 8px #0001}svg{width:100%;height:auto}.edge{stroke:#94a3b8;stroke-width:3}.node{fill:#2563eb}.nodeText{font-size:13px;fill:#fff;font-weight:bold}.label{font-size:12px;fill:#334155}button{padding:10px 14px;border:0;border-radius:8px;background:#1d4ed8;color:white;margin:4px;cursor:pointer}pre{white-space:pre-wrap}
+</style></head><body><header><h1>RouteX</h1><p>Sistema académico de gestión y optimización de rutas</p></header>
+<main><section class="card"><h2>Red de transporte de prueba</h2><svg viewBox="0 0 700 330">
+<g class="edge"><path d="M80 150 L230 70 M80 150 L230 240 M230 70 L400 70 M230 240 L400 70 M230 70 L400 240 M400 70 L570 150 M400 240 L570 150 M230 240 L570 150"/></g>
+<g><circle class="node" cx="80" cy="150" r="22"/><circle class="node" cx="230" cy="70" r="22"/><circle class="node" cx="230" cy="240" r="22"/><circle class="node" cx="400" cy="70" r="22"/><circle class="node" cx="400" cy="240" r="22"/><circle class="node" cx="570" cy="150" r="22"/></g>
+<g class="nodeText" text-anchor="middle"><text x="80" y="155">A</text><text x="230" y="75">B</text><text x="230" y="245">C</text><text x="400" y="75">D</text><text x="400" y="245">E</text><text x="570" y="155">F</text></g>
+<g class="label"><text x="55" y="190">Terminal Norte</text><text x="205" y="35">Centro</text><text x="190" y="280">Aeropuerto</text><text x="375" y="35">Zona Industrial</text><text x="375" y="280">Hospital</text><text x="545" y="190">Terminal Sur</text></g></svg></section>
+<section class="card"><h2>Consultar rutas A → F</h2><button onclick="show('distance')">Menor distancia</button><button onclick="show('time')">Menor tiempo</button><button onclick="show('cost')">Menor costo</button><pre id="result">Selecciona un criterio. Los resultados de referencia se calculan con los datos compartidos.</pre></section>
+<section class="card"><h2>Reglas del prototipo</h2><ul><li>Tráfico bajo ×1.0; medio ×1.3; alto ×1.8.</li><li>Las conexiones se consideran bidireccionales.</li><li>Se asigna el vehículo disponible de menor capacidad suficiente.</li><li>Los pesos de Dijkstra no pueden ser negativos.</li></ul></section></main>
+<script>
+const edges=[["A","B",10,15,100,"bajo"],["A","C",15,20,130,"medio"],["B","D",12,18,110,"bajo"],["C","D",8,12,80,"alto"],["B","E",20,25,180,"medio"],["D","F",10,15,100,"bajo"],["E","F",7,10,70,"bajo"],["C","F",25,30,210,"bajo"]];
+const factor={bajo:1,medio:1.3,alto:1.8};
+function show(kind){let dist={A:0},prev={},q=["A"];while(q.length){q.sort((a,b)=>dist[a]-dist[b]);let n=q.shift();if(n==="F")break;for(const e of edges){let [a,b,d,t,c,tr]=e;let v=a===n?b:b===n?a:null;if(!v)continue;let w=kind==="distance"?d:kind==="time"?t*factor[tr]:c;let nd=dist[n]+w;if(dist[v]===undefined||nd<dist[v]){dist[v]=nd;prev[v]=[n,e];if(!q.includes(v))q.push(v)}}}let nodes=["F"],used=[],cur="F";while(cur!=="A"){let [p,e]=prev[cur];used.push(e);cur=p;nodes.push(cur)}nodes.reverse();used.reverse();let km=used.reduce((s,e)=>s+e[2],0),tm=used.reduce((s,e)=>s+e[3]*factor[e[5]],0),cost=used.reduce((s,e)=>s+e[4],0);document.getElementById("result").textContent=JSON.stringify({criterio:kind,ruta:nodes.join(" → "),distancia_km:km,tiempo_minutos:Number(tm.toFixed(2)),costo:cost},null,2)}
+</script></body></html>
