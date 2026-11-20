@@ -1,0 +1,7 @@
+ROUTEX - ENTREGA ACADÉMICA
+1) Lee README.md.
+2) Ejecuta Python, JavaScript y Go siguiendo los comandos del README.
+3) Abre visualizacion/index.html para mostrar el grafo y consultar las rutas.
+4) Usa documentos/guia_exposicion.md como guion.
+5) El PDF de análisis es una base editable para completar integrantes, materia y docente.
+IMPORTANTE: ejecuta las pruebas en el equipo donde presentarás. El prototipo usa datos ficticios y no consulta tráfico o mapas reales.

@@ -1,0 +1,66 @@
+[
+  {
+    "from": "A",
+    "to": "B",
+    "distance_km": 10,
+    "base_minutes": 15,
+    "cost": 100,
+    "traffic": "bajo"
+  },
+  {
+    "from": "A",
+    "to": "C",
+    "distance_km": 15,
+    "base_minutes": 20,
+    "cost": 130,
+    "traffic": "medio"
+  },
+  {
+    "from": "B",
+    "to": "D",
+    "distance_km": 12,
+    "base_minutes": 18,
+    "cost": 110,
+    "traffic": "bajo"
+  },
+  {
+    "from": "C",
+    "to": "D",
+    "distance_km": 8,
+    "base_minutes": 12,
+    "cost": 80,
+    "traffic": "alto"
+  },
+  {
+    "from": "B",
+    "to": "E",
+    "distance_km": 20,
+    "base_minutes": 25,
+    "cost": 180,
+    "traffic": "medio"
+  },
+  {
+    "from": "D",
+    "to": "F",
+    "distance_km": 10,
+    "base_minutes": 15,
+    "cost": 100,
+    "traffic": "bajo"
+  },
+  {
+    "from": "E",
+    "to": "F",
+    "distance_km": 7,
+    "base_minutes": 10,
+    "cost": 70,
+    "traffic": "bajo"
+  },
+  {
+    "from": "C",
+    "to": "F",
+    "distance_km": 25,
+    "base_minutes": 30,
+    "cost": 210,
+    "traffic": "bajo"
+  }
+]

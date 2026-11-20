@@ -1,0 +1,26 @@
+[
+  {
+    "id": "A",
+    "name": "Terminal Norte"
+  },
+  {
+    "id": "B",
+    "name": "Centro"
+  },
+  {
+    "id": "C",
+    "name": "Aeropuerto"
+  },
+  {
+    "id": "D",
+    "name": "Zona Industrial"
+  },
+  {
+    "id": "E",
+    "name": "Hospital"
+  },
+  {
+    "id": "F",
+    "name": "Terminal Sur"
+  }
+]
